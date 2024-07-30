@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="clock">00:00</div>
+    <img id="weather" src="assets/unknown.png" alt="Weather icon">
+    <p id="temp" style="margin: -1.25%">Fetching local temperature...</p>
+    <form id="city-form">
+        <input type="text" id="city-input" placeholder="Enter city name" required>
+    </form>
+
+
+    <div class="bottom-right">
+        <img src="assets/key.png" id="toggle-input" style="margin-left: -25%; margin-bottom: 45%">
+        <div class="input-box" id="input-box">
+            <input type="text" id="api-input" placeholder="Enter API Key">
+        </div>
+    </div>
+</body>
+</html>
