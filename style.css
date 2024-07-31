@@ -1,5 +1,5 @@
 :root {
-    --background: #272727;
+    --background: #1e1e1e;
     --text: #e6e6e6;
 }
 
@@ -21,6 +21,11 @@ body {
     margin-top: 4%;
 }
 
+#temp {
+    font-size: 25px;
+    margin: -1.25%
+}
+
 form {
     margin-top: 30px;
 }
@@ -38,10 +43,25 @@ button {
     cursor: pointer;
 }
 
-/*
-#weather {
-    
-*/
+.input-box {
+    position: fixed;
+    bottom: 0;
+    right: 0px;
+    transform: translateX(150%);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 0.85%;
+}
+
+.input-box input {
+    width: 200px;
+    font-size: 16px;
+    border: 1px solid var(--text);
+    border-radius: 5px;
+}
+
+.input-box.show {
+    transform: translateX(-25%);
+}
 
 .bottom-right {
     position: fixed;
@@ -59,23 +79,53 @@ button {
     cursor: pointer;
 }
 
-.input-box {
-    position: fixed;
-    bottom: 0;
-    right: 0px;
-    transform: translateX(150%);
-    transition: transform 0.3s ease-in-out;
-    margin-bottom: 1%;
+.bookmarks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
 }
 
-.input-box input {
-    width: 200px;
-    font-size: 16px;
-    border: 1px solid var(--text);
-    border-radius: 5px;
+.bookmarks {
+    flex: 0 1 200px;
+    margin: 5px;
+    padding: 15px;
+    min-height: 200px;
+    box-sizing: border-box;
 }
 
-.input-box.show {
-    transform: translateX(-25%);
+.bookmarks h2 {
+    margin-top: 0;
 }
 
+.bookmarks hr {
+    border: none;
+    height: 1px;
+    background-color: var(--text);
+    margin-top: -15px;
+    margin-bottom: -10px;
+}
+
+.bookmarks ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.bookmarks li {
+    margin: 5px 0;
+}
+
+.bookmarks a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.bookmarks a:hover {
+    text-decoration: underline;
+}
+
+#lineFade {
+    background: linear-gradient(to right, transparent 10%, var(--text) 40%, var(--text) 60%, transparent 90%);
+    height: 1.5px;
+}

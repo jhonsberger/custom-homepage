@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayTemp(data) {
         const temperature = Math.ceil(data.main.temp);
-        document.getElementById('temp').innerText = `Temperature: ${temperature}°C`;
+        document.getElementById('temp').innerText = `${temperature}°C`;
     }
 
     function displayWeather(data) {

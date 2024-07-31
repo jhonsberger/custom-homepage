@@ -14,11 +14,56 @@
 <body>
     <div id="clock">00:00</div>
     <img id="weather" src="assets/unknown.png" alt="Weather icon">
-    <p id="temp" style="margin: -1.25%">Fetching local temperature...</p>
+    <p id="temp">Fetching local temperature...</p>
     <form id="city-form">
         <input type="text" id="city-input" placeholder="Enter city name" required>
     </form>
 
+    <div class="bookmarks-container">
+        <div class="bookmarks" id="media">
+            <h3>Media</h3>
+            <hr id="lineFade">
+            <ul>
+                <li><a href="https://youtube.com">Youtube</a></li>
+                <li><a href="https://netflix.com">Netflix</a></li>
+                <li><a href="https://disneyplus.com">Disney+</a></li>
+                <li><a href="https://spotify.com">Spotify</a></li>
+            </ul>
+        </div>
+
+        <div class="bookmarks" id="work">
+            <h3>Work</h3>
+            <hr id="lineFade">
+            <ul>
+                <li><a href="https://github.com">Github</a></li>
+                <li><a href="https://leetcode.com">Leetcode</a></li>
+                <li><a href="https://linkedin.com">Linkedin</a></li>
+                <li><a href="https://gmail.com">Gmail</a></li>
+            </ul>
+        </div>
+
+        <div class="bookmarks" id="learning">
+            <h3>Learning</h3>
+            <hr id="lineFade">
+            <ul>
+                <li><a href="https://stackoverflow.com">Stack Overflow</a></li>
+                <li><a href="https://developer.mozilla.org">MDN Web Docs</a></li>
+                <li><a href="https://devdocs.io">DevDocs</a></li>
+                <li><a href="https://w3schools.com">W3Schools</a></li>
+            </ul>
+        </div>
+
+        <div class="bookmarks" id="tools">
+            <h3>Tools</h3>
+            <hr id="lineFade">
+            <ul>
+                <li><a href="https://codepen.io">CodePen</a></li>
+                <li><a href="https://jsfiddle.net">JSFiddle</a></li>
+                <li><a href="https://postman.com">Postman</a></li>
+                <li><a href="https://figma.com">Figma</a></li>
+            </ul>
+        </div>
+    </div>
 
     <div class="bottom-right">
         <img src="assets/key.png" id="toggle-input" style="margin-left: -25%; margin-bottom: 45%">

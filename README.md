@@ -24,4 +24,3 @@ https://addons.mozilla.org/de/firefox/addon/new-tab-override
 - Click on the key icon located at the bottom left of the homepage of your custom start page.
 - Paste your copied API key into the input field that appears.
 - Click the enter button to ensure the API key is stored and used for weather data retrieval.
-![homepage key](assets/homepage_key.png)
