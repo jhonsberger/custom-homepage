@@ -1,5 +1,6 @@
 :root {
-    --background: #1e1e1e;
+    --background: #121212;
+    --supporting: #1e1e1e;
     --text: #e6e6e6;
 }
 
@@ -15,7 +16,6 @@ body {
 }
 
 #clock {
-    text-align: center;
     font-family: "Roboto Mono", monospace;
     font-size: 65px;
     margin-top: 4%;
@@ -23,18 +23,11 @@ body {
 
 #temp {
     font-size: 25px;
-    margin: -1.25%
+    margin: -1.25%;
 }
 
 form {
     margin-top: 30px;
-}
-
-#city-input {
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid var(--text);
-    border-radius: 5px;
 }
 
 button {
@@ -46,7 +39,7 @@ button {
 .input-box {
     position: fixed;
     bottom: 0;
-    right: 0px;
+    right: 0;
     transform: translateX(150%);
     transition: transform 0.3s ease-in-out;
     margin-bottom: 0.85%;
@@ -70,12 +63,10 @@ button {
     z-index: 1000;
     display: flex;
     align-items: center;
-    margin-left: -25%; 
 }
 
 .bottom-right img {
     width: 30px;
-    height: auto;
     cursor: pointer;
 }
 
@@ -83,20 +74,21 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    padding: 15px;
+    margin-top: 45px;
 }
 
 .bookmarks {
     flex: 0 1 200px;
     margin: 5px;
-    padding: 15px;
-    min-height: 200px;
+    min-height: 175px;
     box-sizing: border-box;
+    background-color: var(--supporting);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
-.bookmarks h2 {
-    margin-top: 0;
+.bookmarks h3 {
+    background: transparent;
 }
 
 .bookmarks hr {
@@ -105,20 +97,24 @@ button {
     background-color: var(--text);
     margin-top: -15px;
     margin-bottom: -10px;
+    background: transparent;
 }
 
 .bookmarks ul {
     list-style-type: none;
     padding-left: 0;
+    background: transparent;
 }
 
 .bookmarks li {
     margin: 5px 0;
+    background: transparent;
 }
 
 .bookmarks a {
     text-decoration: none;
     color: var(--text);
+    background: transparent;
 }
 
 .bookmarks a:hover {

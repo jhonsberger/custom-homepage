@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     setInterval(showTime, 100);
 
-    function getWeather(city) {
+    // Fetch weather data using coordinates
+    function getWeatherByCoords(lat, lon) {
         const apiKey = localStorage.getItem('api_key');
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
         fetch(url)
             .then(response => response.json())
@@ -36,11 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error('Error fetching weather data:', err));
     }
 
+    // Update the temperature display
     function displayTemp(data) {
         const temperature = Math.ceil(data.main.temp);
         document.getElementById('temp').innerText = `${temperature}°C`;
     }
 
+    // Update the weather icon and description
     function displayWeather(data) {
         const weatherDescription = data.weather[0].description;
         const weatherIcon = data.weather[0].icon;
@@ -52,29 +55,44 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('weather').title = title;
     }
 
-    document.getElementById('city-input').addEventListener('input', function() {
-        const city = document.getElementById('city-input').value;
-        localStorage.setItem('city', city); // Save city to localStorage
-        if (city) {
-            getWeather(city); // Fetch weather data for the input city
+    // Request user's location and fetch weather data
+    function requestLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const { latitude, longitude } = position.coords;
+                localStorage.setItem('latitude', latitude);
+                localStorage.setItem('longitude', longitude);
+                getWeatherByCoords(latitude, longitude);
+            }, error => {
+                console.error('Error getting location:', error);
+                document.getElementById('temp').innerText = 'Unable to retrieve location';
+            });
+        } else {
+            console.error('Geolocation not supported by this browser');
+            document.getElementById('temp').innerText = 'Geolocation not supported';
         }
-    });
+    }
 
+    // Check for saved location in localStorage and fetch weather data or request location
     window.onload = function() {
-        const savedCity = localStorage.getItem('city');
-        if (savedCity) {
-            document.getElementById('city-input').value = savedCity;
-            getWeather(savedCity); // Fetch weather data for saved city
+        const savedLatitude = localStorage.getItem('latitude');
+        const savedLongitude = localStorage.getItem('longitude');
+        if (savedLatitude && savedLongitude) {
+            getWeatherByCoords(savedLatitude, savedLongitude);
+        } else {
+            requestLocation();
         }
     };
 
     let api_key = '';
 
+    // Toggle API key input box visibility
     document.getElementById('toggle-input').addEventListener('click', function() {
         document.getElementById('input-box').classList.toggle('show');
         document.getElementById('api-input').focus(); // Focus on input box when toggled
     });
 
+    // Save API key to localStorage when user presses Enter
     document.getElementById('api-input').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             api_key = event.target.value;
