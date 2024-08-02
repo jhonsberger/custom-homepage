@@ -84,7 +84,8 @@ button {
     box-sizing: border-box;
     background-color: var(--supporting);
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: all 0.75s;
 }
 
 .bookmarks h3 {
@@ -117,8 +118,37 @@ button {
     background: transparent;
 }
 
-.bookmarks a:hover {
-    text-decoration: underline;
+.bookmarks a, a:link, a:visited {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+}
+  
+.bookmarks a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    /*
+    TODO: different accent options?
+    background-image: linear-gradient(to right, #8A2BE2, #4B0082);
+    */
+    background-image: linear-gradient(to right, var(--text), var(--text));
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: background-size 0.25s ease-in;
+}
+  
+.bookmarks a:hover::before {
+    background-size: 100% 2px;
+}
+
+.bookmarks:hover {
+    transform: scale(1.048);
+    transition: 0.35s;
 }
 
 #lineFade {

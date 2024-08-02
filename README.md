@@ -1,7 +1,7 @@
 # Custom Start Page
 
 this is a custom minimal start page made to replace the default chrome (or another browser) startpage.
-![Homepage](assets/homepage.png)
+![Homepage](assets/homepage.gif)
 
 # How do I set the startpage as my default?
 
